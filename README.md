@@ -77,3 +77,11 @@ WHERE
     r = (SELECT CEIL(COUNT(*) / 2) FROM Station) OR
     r = (SELECT FLOOR((COUNT(*) / 2) + 1) FROM Station);
 ```
+
+## 7. Advanced Select - The Report
+```
+select if (grade < 8, null, s.name), g.grade, s.marks
+from students s, grades g
+where marks between min_mark and max_mark
+order by g.grade desc, name;
+```
