@@ -21,5 +21,7 @@ from occupations
     order by name) as temp
 group by row_index;
 ```
-
+- ldfkslkfjsd
+- sf.dmns
+- 
 
