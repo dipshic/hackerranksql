@@ -54,9 +54,26 @@ group by c.company_code, c.founder
 order by company_code;
 ```
 
-## 4.- Advanced Select- Weather Observation Station 18
+## 4. Advanced Select - Weather Observation Station 18
 ```
 SELECT 
     ROUND(ABS(MIN(LAT_N)-MAX(LAT_N))+ ABS(MIN(LONG_W)-MAX(LONG_W)),4)
 FROM STATION;
+```
+
+## 5. Advanced Select - Weather Observation Station 19
+```
+SELECT 
+    ROUND(SQRT(POW(MIN(LAT_N)-MAX(LAT_N),2)+POW(MIN(LONG_W)-MAX(LONG_W),2)),4)
+FROM STATION;
+```
+
+## 6. Advanced Select - Weather Observation Station 20
+```
+SET @r = 0;
+SELECT ROUND(AVG(Lat_N), 4)
+FROM (SELECT (@r := @r + 1) AS r, Lat_N FROM Station ORDER BY Lat_N) Temp
+WHERE
+    r = (SELECT CEIL(COUNT(*) / 2) FROM Station) OR
+    r = (SELECT FLOOR((COUNT(*) / 2) + 1) FROM Station);
 ```
