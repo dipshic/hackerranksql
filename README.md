@@ -21,7 +21,42 @@ from occupations
     order by name) as temp
 group by row_index;
 ```
-- ldfkslkfjsd
-- sf.dmns
-- 
 
+
+## 2. Advanced Select - The Pads
+```
+SELECT CONCAT(Name,'(',LEFT(Occupation,1),')')
+FROM OCCUPATIONS
+ORDER BY Name ASC;
+SELECT CONCAT('There are a total of ',COUNT(*),' ', LOWER(Occupation),'s.')
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY COUNT(*),Occupation ASC;
+```
+
+## 3. Advanced Select - New Companies
+```
+select c.company_code, c.founder, 
+    count(distinct lm.lead_manager_code) as tot_lm , 
+    count(distinct sm.senior_manager_code) as tot_sm,
+    count(distinct m.manager_code) as tot_managers, 
+    count(distinct e.employee_code) as tot_emp
+from (select distinct * from company) c
+inner join (select distinct * from lead_manager) lm
+on c.company_code = lm.company_code
+inner join (select distinct * from senior_manager) sm
+on lm.company_code = sm.company_code
+inner join (select distinct * from manager) m
+on sm.company_code = m.company_code 
+inner join (select distinct * from employee) e
+on m.company_code = e.company_code
+group by c.company_code, c.founder
+order by company_code;
+```
+
+## 4.- Advanced Select- Weather Observation Station 18
+```
+SELECT 
+    ROUND(ABS(MIN(LAT_N)-MAX(LAT_N))+ ABS(MIN(LONG_W)-MAX(LONG_W)),4)
+FROM STATION;
+```
