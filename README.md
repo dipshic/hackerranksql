@@ -1,6 +1,6 @@
 # Hackerrank SQL
 Solutions for Hackerrank SQL questions.
 
-## Advanced Select - Occupations
+## 1. Advanced Select - Occupations
 
 
