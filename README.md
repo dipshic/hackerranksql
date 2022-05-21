@@ -1,5 +1,5 @@
 # Hackerrank SQL
-Solutions for Hackerrank SQL questions - Medium Level.
+## ** Solutions for Hackerrank SQL questions - Medium Level. **
 
 ## 1. Advanced Select - Occupations
 ```
