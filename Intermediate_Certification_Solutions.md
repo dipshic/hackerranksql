@@ -1,6 +1,6 @@
 **Solutions for Hackerrank Intermediate SQL Certifications**
 
-## 1. Product City Sales
+## 1. Product Sales Per City
 ```
 SELECT t1.city_name,t5.product_name,
 round(sum(t4.line_total_price) over(partition by t4.product_id,t1.id),2) as amount_spent
